@@ -7,19 +7,20 @@ using UnityEngine.Serialization;
 
 public class Shooter : MonoBehaviour
 {
-    private Vector3 mousePos;
-    [SerializeField] private Transform spawner;
-    [SerializeField] private GameObject paintballPrefab;
-    [SerializeField] private SpriteRenderer ballColor;
-    [SerializeField] private Color firstColor;
-    [SerializeField] private Color secondColor;
+    private Vector3 mousePos; // Position of mouse on the screen
+    [SerializeField] private Transform spawner; // Where the bullets will come from
+    [SerializeField] private GameObject paintballPrefab; // The paintball template
+    [SerializeField] private SpriteRenderer ballColor; // The current color of the paintball 
+    [SerializeField] private Color firstColor; // The color of the first ball
+    [SerializeField] private Color secondColor; // The color of the second ball 
     
-
-
     // Update is called once per frame
     void Update()
     {
+        // Take aim
         Aim();
+        
+        // Take input and fire 
         if (Input.GetButtonDown("Fire1"))
         {
             Shoot(firstColor);
@@ -47,6 +48,9 @@ public class Shooter : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
+    /**
+     * Instantiates a new bullet prefab and sets its color appropriately 
+     */
     private void Shoot(Color color)
     {
         ballColor.color = color;
