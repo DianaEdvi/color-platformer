@@ -1,47 +1,47 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Lights : MonoBehaviour
 {
-    [SerializeField] private GameObject topHole; // The top position of the light
-    [SerializeField] private GameObject bottomHole; // The bottom position of the light
-    [SerializeField] private new GameObject light; // The actual position of the light 
-    [SerializeField] private float lightSpeed = 0.01f;
-    private bool _lightIsOn; // Whether the light is on or off
+
+    [SerializeField] private Light2D globalLight;
+    [SerializeField] private Color defaultColor;
+    [SerializeField] private SpriteRenderer switchRenderer;
+    [SerializeField] private Switches switches;
+    [SerializeField] private Light2D[] lamps;
+
+    private float _currentColorValue = 0;
     
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
 
     // Update is called once per frame
     void Update()
     {
-        FlipLight();
-    }
+        // Make a coroutine
+        if (switches.getIsLightOn())
+        {
+            globalLight.color = switchRenderer.color;
+            // globalLight.color = Color.Lerp(defaultColor, switchRenderer.color, _currentColorValue);
+        }
+        else
+        {
+            globalLight.color = defaultColor;
+            // globalLight.color = Color.Lerp(switchRenderer.color, defaultColor, _currentColorValue);;
+        }
 
-    /**
-     * Changes the light to on/off
-     */
-    private void FlipLight()
-    {
-        // Change the position of the light according to where it is supposed to be
-        if (_lightIsOn && light.transform.position.y < topHole.transform.position.y)
+        _currentColorValue += 0.01f;
+        foreach (var lamp in lamps)
         {
-            light.transform.position += new Vector3(0, lightSpeed, 0);
+            lamp.color = globalLight.color;
         }
-        else if (!_lightIsOn && light.transform.position.y > bottomHole.transform.position.y)
-        {
-            light.transform.position -= new Vector3(0, lightSpeed, 0);
-        }
-    }
 
-    /**
-     * Turn the light on if the player triggers it
-     */
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            _lightIsOn = !_lightIsOn;
-        }
+
+
     }
 }
