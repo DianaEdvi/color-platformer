@@ -290,6 +290,11 @@ MonoBehaviour:
   speed: 8
   smoothTime: 0.2
   jumpForce: 900
+--- !u!1 &142726377 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2831416272417326564, guid: 860fc7e9bb7f66142a8ec6198664a0cc, type: 3}
+  m_PrefabInstance: {fileID: 3951513702910797094}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &235251899
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -347,6 +352,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c8960b4170f86a42a6f2ce28807f171, type: 3}
+--- !u!1 &310046701 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 705754198869937164, guid: 860fc7e9bb7f66142a8ec6198664a0cc, type: 3}
+  m_PrefabInstance: {fileID: 3951513702910797094}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &348942063
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,6 +624,32 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!1 &549227975 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3556676563449278902, guid: 860fc7e9bb7f66142a8ec6198664a0cc, type: 3}
+  m_PrefabInstance: {fileID: 3951513702910797094}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &549227976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549227975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84192c0d9e5247c45b91f952e247cbd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  top: {fileID: 310046701}
+  bottom: {fileID: 581509459}
+  beams:
+  - {fileID: 1276617355}
+  - {fileID: 142726377}
+  - {fileID: 1496136130}
+  - {fileID: 1275349648}
+  closedPrefab: {fileID: 2843917944452062763, guid: e5474e2e7ff95e148a9f155eef537e3a, type: 3}
+  openPrefab: {fileID: 3556676563449278902, guid: 860fc7e9bb7f66142a8ec6198664a0cc, type: 3}
 --- !u!1 &568832817
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,6 +681,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1455917241}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &581509459 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1816662396348350327, guid: 860fc7e9bb7f66142a8ec6198664a0cc, type: 3}
+  m_PrefabInstance: {fileID: 3951513702910797094}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &628521701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1150,6 +1191,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1275349648 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6232006357408388978, guid: 860fc7e9bb7f66142a8ec6198664a0cc, type: 3}
+  m_PrefabInstance: {fileID: 3951513702910797094}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1276617355 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3173273639908777183, guid: 860fc7e9bb7f66142a8ec6198664a0cc, type: 3}
+  m_PrefabInstance: {fileID: 3951513702910797094}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1448685429 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4591115018847278744, guid: 5c76f06572042f1498d02a90ef9d7a6f, type: 3}
@@ -1265,6 +1316,11 @@ MonoBehaviour:
   ballColor: {fileID: 2595234290846780270, guid: 555a3248877141d43891308163b72872, type: 3}
   firstColor: {r: 1, g: 0.8254717, b: 0.95956045, a: 1}
   secondColor: {r: 0.6745098, g: 1, b: 0.6901961, a: 1}
+--- !u!1 &1496136130 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8896346095625758349, guid: 860fc7e9bb7f66142a8ec6198664a0cc, type: 3}
+  m_PrefabInstance: {fileID: 3951513702910797094}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1549243195 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2957461637917777735, guid: c1d24f5124722bc46826882afb799811, type: 3}
@@ -1469,10 +1525,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trampoline
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3556676563449278902, guid: 860fc7e9bb7f66142a8ec6198664a0cc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 549227976}
   m_SourcePrefab: {fileID: 100100000, guid: 860fc7e9bb7f66142a8ec6198664a0cc, type: 3}
 --- !u!1001 &9080240510827840308
 PrefabInstance:

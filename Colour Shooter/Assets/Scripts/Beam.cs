@@ -22,16 +22,16 @@ public class Beam : MonoBehaviour
 
     private void Start()
     {
-        var baseBlockHeight = baseBlock.GetComponent<Renderer>().bounds.size.y;
-        var baseBlockPosition = baseBlock.transform.position;
-        
-        _targetPosition.y = baseBlockPosition.y + baseBlockHeight/2;
-        _targetPosition.x = baseBlockPosition.x;
-        
-        _targetTopPosition = new Vector3(baseBlock.transform.position.x, baseBlock.transform.position.y + baseBlockHeight/2, baseBlock.transform.position.z);
-
-        _transforms = new Transform[] { transform, topBlock.transform };
-        targets = new Vector3[] { _targetPosition, targetRotation, _targetTopPosition };
+        // var baseBlockHeight = baseBlock.GetComponent<Renderer>().bounds.size.y;
+        // var baseBlockPosition = baseBlock.transform.position;
+        //
+        // _targetPosition.y = baseBlockPosition.y + baseBlockHeight/2;
+        // _targetPosition.x = baseBlockPosition.x;
+        //
+        // _targetTopPosition = new Vector3(baseBlock.transform.position.x, baseBlock.transform.position.y + baseBlockHeight/2, baseBlock.transform.position.z);
+        //
+        // _transforms = new Transform[] { transform, topBlock.transform };
+        // targets = new Vector3[] { _targetPosition, targetRotation, _targetTopPosition };
 
 
 
@@ -39,11 +39,11 @@ public class Beam : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Vertical"))
-        {
-            _changePosition = true;
-        }
-        ChangePosition(_transforms, targets, 0.02f);
+        // if (Input.GetButtonDown("Vertical"))
+        // {
+        //     _changePosition = true;
+        // }
+        // ChangePosition(_transforms, targets, 0.02f);
     }
     
     private void ChangePosition(Transform[] transforms, Vector3[] targetPositions, float speed)

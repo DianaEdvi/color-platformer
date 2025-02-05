@@ -379,7 +379,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 813841962147668905}
-  - component: {fileID: 1079111038993646061}
   m_Layer: 0
   m_Name: Trampoline_Open
   m_TagString: Untagged
@@ -396,32 +395,18 @@ Transform:
   m_GameObject: {fileID: 3556676563449278902}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.76, y: -3.76, z: -0.05836437}
+  m_LocalPosition: {x: -5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5453863803840512137}
-  - {fileID: 7541549194635636999}
   - {fileID: 6015626959140996707}
   - {fileID: 3041286139546205505}
   - {fileID: 6649103486766147104}
   - {fileID: 7364841042509391853}
+  - {fileID: 5453863803840512137}
+  - {fileID: 7541549194635636999}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1079111038993646061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3556676563449278902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6cccba253772474597694e938d311ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beams: []
-  launchPad: {fileID: 0}
 --- !u!1 &5313920064162362163
 GameObject:
   m_ObjectHideFlags: 0
