@@ -8,4 +8,7 @@ public class ToDo : MonoBehaviour
     // Material for composite objects 
     // Phasing in and out 
     // 
+    
+    // Bugs 
+    // Player can no longer jump after colliding with wall 
 }
