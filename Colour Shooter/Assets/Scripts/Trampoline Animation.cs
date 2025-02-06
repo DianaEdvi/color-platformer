@@ -1,20 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TrampolineAnimation : MonoBehaviour
 {
-    [SerializeField] private GameObject top; 
-    [SerializeField] private GameObject bottom; 
-    [SerializeField] private GameObject[] beams;
-    [SerializeField] private GameObject closedPrefab; 
-    [SerializeField] private GameObject openPrefab;
+    // The separate parts of the trampoline
+    private GameObject _top; 
+    private GameObject _bottom; 
+    private GameObject[] _beams;
+    [SerializeField] private GameObject trampoline; // The parent trampoline object
+    [SerializeField] private GameObject closedPrefab; // The closed template
+    [SerializeField] private GameObject openPrefab; // The open template 
 
     private bool _closeTrampoline;
     
     // Start is called before the first frame update
     private void Start()
     {
+        SetGameObjects();
         SetInitialPosition(closedPrefab);
     }
 
@@ -42,30 +46,49 @@ public class TrampolineAnimation : MonoBehaviour
         
     }
 
-    
-    private void SetInitialPosition(GameObject targetPrefab)
+    /**
+     * Find the game objects instead of having to assign them in the hierarchy every time
+     */
+    private void SetGameObjects()
     {
-        var currentPosition = transform.position;
-        closedPrefab.transform.position = currentPosition;
-        openPrefab.transform.position = currentPosition;
-        
-        top.transform.position = targetPrefab.transform.Find("Top").transform.position;
-        bottom.transform.position = targetPrefab.transform.Find("Bottom").transform.position;
-
-        for (var i = 0; i < beams.Length; i++)
+        // Find child objects relative to 'trampoline'
+        _top = trampoline.transform.Find("Top").gameObject;
+        _bottom = trampoline.transform.Find("Bottom").gameObject;
+        _beams = new[]
         {
-            beams[i].transform.position = targetPrefab.transform.GetChild(i).position;
-            beams[i].transform.rotation = targetPrefab.transform.GetChild(i).rotation;
-        }
+            trampoline.transform.Find("Bottom beam left").gameObject, 
+            trampoline.transform.Find("Bottom beam right").gameObject,
+            trampoline.transform.Find("Top beam right").gameObject, 
+            trampoline.transform.Find("Top beam left").gameObject
+        };
     }
     
+    /**
+     * Sets the position of the template prefabs to the position of the current object (aka make all transformations relative to the current object) 
+     */
+    private void SetInitialPosition(GameObject targetPrefab)
+    {
+        // The current position of the object
+        var currentPosition = trampoline.transform.position;
+        
+        // Make template positions relative to current position
+        closedPrefab.transform.position = currentPosition;
+        openPrefab.transform.position = currentPosition;
+    }
+    
+    /**
+     * Uses Lerp functions to perform the animations for opening and closing the trampolines
+     */
     private void ChangePosition(GameObject targetPrefab, float speed)
     {
-        for (var i = 0; i < beams.Length; i++)
+        // Assign rotation and position for the beams 
+        for (var i = 0; i < _beams.Length; i++)
         {
-            beams[i].transform.rotation = Quaternion.Lerp(beams[i].transform.rotation, targetPrefab.transform.GetChild(i).rotation,speed);
-            beams[i].transform.position = Vector3.Lerp(beams[i].transform.position, targetPrefab.transform.GetChild(i).position, speed);
+            _beams[i].transform.rotation = Quaternion.Lerp(_beams[i].transform.rotation, targetPrefab.transform.GetChild(i).rotation,speed);
+            _beams[i].transform.position = Vector3.Lerp(_beams[i].transform.position, targetPrefab.transform.GetChild(i).position, speed);
         }
-        top.transform.position = Vector3.Lerp(top.transform.position, targetPrefab.transform.GetChild(5).position, speed);
+        
+        // Assign position for top
+        _top.transform.position = Vector3.Lerp(_top.transform.position, targetPrefab.transform.GetChild(5).position, speed);
     }
 }
