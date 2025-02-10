@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class Switches : MonoBehaviour
+public class Switch : MonoBehaviour
 {
     [SerializeField] private GameObject topHole; // The top position of the light
     [SerializeField] private GameObject bottomHole; // The bottom position of the light

@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Serialization;
 
-public class Lights : MonoBehaviour
+public class Light : MonoBehaviour
 {
 
     [SerializeField] private Light2D globalLight;
     [SerializeField] private Color defaultColor;
     [SerializeField] private SpriteRenderer switchRenderer;
-    [SerializeField] private Switches switches;
+    [FormerlySerializedAs("switches")] [SerializeField] private Switch lightSwitch;
     [SerializeField] private Light2D[] lamps;
 
     private float _currentColorValue = 0;
@@ -24,7 +25,7 @@ public class Lights : MonoBehaviour
     void Update()
     {
         // Make a coroutine
-        if (switches.getIsLightOn())
+        if (lightSwitch.getIsLightOn())
         {
             globalLight.color = switchRenderer.color;
             // globalLight.color = Color.Lerp(defaultColor, switchRenderer.color, _currentColorValue);

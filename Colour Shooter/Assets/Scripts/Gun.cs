@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class Shooter : MonoBehaviour
+public class Gun : MonoBehaviour
 {
     private Vector3 mousePos; // Position of mouse on the screen
     [SerializeField] private Transform spawner; // Where the bullets will come from
