@@ -9,11 +9,10 @@ public class TrampolineAnimation : MonoBehaviour
     private GameObject _top; 
     private GameObject _bottom; 
     private GameObject[] _beams;
+    [SerializeField] private float animationSpeed = 0.02f;
     [SerializeField] private GameObject trampoline; // The parent trampoline object
     [SerializeField] private GameObject closedPrefab; // The closed template
     [SerializeField] private GameObject openPrefab; // The open template 
-
-    private bool _closeTrampoline;
     
     // Start is called before the first frame update
     private void Start()
@@ -21,30 +20,7 @@ public class TrampolineAnimation : MonoBehaviour
         SetGameObjects();
         SetInitialPosition(closedPrefab);
     }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        // Temporary input for testing 
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            _closeTrampoline = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.M))
-        {
-            _closeTrampoline = false;
-        }
-
-        if (_closeTrampoline)
-        {
-            ChangePosition(openPrefab,0.02f);
-        }
-        else
-        {
-            ChangePosition(closedPrefab,0.02f);
-        }
-        
-    }
+    
 
     /**
      * Find the game objects instead of having to assign them in the hierarchy every time
@@ -79,7 +55,7 @@ public class TrampolineAnimation : MonoBehaviour
     /**
      * Uses Lerp functions to perform the animations for opening and closing the trampolines
      */
-    private void ChangePosition(GameObject targetPrefab, float speed)
+    public void ChangePosition(GameObject targetPrefab, float speed)
     {
         // Assign rotation and position for the beams 
         for (var i = 0; i < _beams.Length; i++)
@@ -90,5 +66,20 @@ public class TrampolineAnimation : MonoBehaviour
         
         // Assign position for top
         _top.transform.position = Vector3.Lerp(_top.transform.position, targetPrefab.transform.GetChild(5).position, speed);
+    }
+
+    public GameObject GetPrefabs(string type)
+    {
+        return type switch
+        {
+            "Open" => openPrefab,
+            "Close" => closedPrefab,
+            _ => null
+        };
+    }
+
+    public float GetAnimationSpeed()
+    {
+        return animationSpeed;
     }
 }

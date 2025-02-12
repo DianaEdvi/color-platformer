@@ -28,12 +28,10 @@ public class Light : MonoBehaviour
         if (lightSwitch.getIsLightOn())
         {
             globalLight.color = switchRenderer.color;
-            // globalLight.color = Color.Lerp(defaultColor, switchRenderer.color, _currentColorValue);
         }
         else
         {
             globalLight.color = defaultColor;
-            // globalLight.color = Color.Lerp(switchRenderer.color, defaultColor, _currentColorValue);;
         }
 
         _currentColorValue += 0.01f;

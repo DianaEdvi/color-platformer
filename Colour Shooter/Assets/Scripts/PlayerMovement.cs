@@ -13,17 +13,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float smoothTime = 0.2f; // Amount of smoothing
     [SerializeField] private float jumpForce; // How high you jump
     private bool _isGrounded = false; // Whether touching ground 
+    private bool _isJumping = false;
 
     void Update()
     {
         // Get horizontal input
         _movement.x = Input.GetAxisRaw("Horizontal");
-        // Flip();
         
         // Allow jump only if grounded
         if (Input.GetButtonDown("Jump") && _isGrounded)
         {
-            Jump();
+            _isJumping = true;
         }
     }
 
@@ -34,6 +34,11 @@ public class PlayerMovement : MonoBehaviour
         _targetVelocity = new Vector2(_movement.x * speed, velocity.y);
         rb.velocity = Vector3.SmoothDamp(velocity, _targetVelocity, ref _velocity, smoothTime);
 
+        if (_isJumping)
+        {
+            Jump();
+        }
+
     }
 
     /**
@@ -42,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         rb.AddForce(new Vector2(rb.velocity.x, jumpForce));
+        _isJumping = false;
         _isGrounded = false;  // Temporarily set false to prevent multiple jumps
     }
 
@@ -82,5 +88,10 @@ public class PlayerMovement : MonoBehaviour
         {
             _isGrounded = false;
         }
+    }
+
+    public Rigidbody2D GetPlayerRb()
+    {
+        return rb;
     }
 }

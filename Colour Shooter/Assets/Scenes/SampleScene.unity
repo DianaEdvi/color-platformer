@@ -489,13 +489,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trampoline
       objectReference: {fileID: 0}
+    - target: {fileID: 3111212576036139054, guid: f6984f56d82208f46adbee4b260183c8, type: 3}
+      propertyPath: launchForce
+      value: 1200
+      objectReference: {fileID: 0}
     - target: {fileID: 5621913228612107204, guid: f6984f56d82208f46adbee4b260183c8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.63
+      value: -4.6
       objectReference: {fileID: 0}
     - target: {fileID: 5621913228612107204, guid: f6984f56d82208f46adbee4b260183c8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.29
+      value: -3.879
       objectReference: {fileID: 0}
     - target: {fileID: 5621913228612107204, guid: f6984f56d82208f46adbee4b260183c8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -858,7 +862,7 @@ MonoBehaviour:
   globalLight: {fileID: 873413383}
   defaultColor: {r: 1, g: 1, b: 1, a: 0}
   switchRenderer: {fileID: 952440139}
-  switches: {fileID: 1549243195}
+  lightSwitch: {fileID: 1549243195}
   lamps:
   - {fileID: 1195596309}
   - {fileID: 1448685429}
@@ -1225,7 +1229,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5621913228612107204, guid: f6984f56d82208f46adbee4b260183c8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.36
+      value: -3.879
       objectReference: {fileID: 0}
     - target: {fileID: 5621913228612107204, guid: f6984f56d82208f46adbee4b260183c8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1377,8 +1381,8 @@ MonoBehaviour:
   spawner: {fileID: 568832818}
   paintballPrefab: {fileID: 2944760275363263443, guid: 555a3248877141d43891308163b72872, type: 3}
   ballColor: {fileID: 2595234290846780270, guid: 555a3248877141d43891308163b72872, type: 3}
-  firstColor: {r: 1, g: 0.8254717, b: 0.95956045, a: 1}
-  secondColor: {r: 0.6745098, g: 1, b: 0.6901961, a: 1}
+  firstColor: {r: 0.6745098, g: 1, b: 0.6901961, a: 1}
+  secondColor: {r: 1, g: 0.7028302, b: 0.9311435, a: 1}
 --- !u!114 &1549243195 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2957461637917777735, guid: c1d24f5124722bc46826882afb799811, type: 3}
