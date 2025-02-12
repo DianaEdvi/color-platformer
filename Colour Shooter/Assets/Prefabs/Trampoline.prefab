@@ -551,7 +551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84192c0d9e5247c45b91f952e247cbd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationSpeed: 0.02
+  animationSpeed: 8
   trampoline: {fileID: 2843917944452062763}
   closedPrefab: {fileID: 1366838268940451099}
   openPrefab: {fileID: 3108234501327557597}

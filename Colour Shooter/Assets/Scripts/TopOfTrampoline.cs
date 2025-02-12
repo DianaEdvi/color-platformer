@@ -24,7 +24,6 @@ public class TopOfTrampoline : MonoBehaviour
 
     public bool ReachedTopOfLaunchPad()
     {
-        Debug.Log(_isColliding);
         return _isColliding;
     }
 }

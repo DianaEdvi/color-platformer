@@ -9,27 +9,17 @@ using Object = UnityEngine.Object;
 public class TrampolinePhysics : MonoBehaviour
 {
 
-    private TrampolineAnimation _animation;
-    private bool _closeTrampoline;
     private TopOfTrampoline _topOfTrampoline;
     private Rigidbody2D rb;
-    private PlayerMovement _playerMovement;
     [SerializeField] private float launchForce = 500f;
     private bool _isLaunching = false;
-
     
     // Start is called before the first frame update
     void Start()
     {
         rb = GameObject.Find("Player").GetComponent<Rigidbody2D>();
         
-        _animation = GetComponent<TrampolineAnimation>();
         _topOfTrampoline = GetComponentInChildren<TopOfTrampoline>();
-
-        if (_animation == null)
-        {
-            Debug.LogError("TrampolineAnimation component not found on the same GameObject!", this);
-        }
         
         if (_topOfTrampoline == null)
         {
@@ -43,11 +33,8 @@ public class TrampolinePhysics : MonoBehaviour
     {
         if (_topOfTrampoline.ReachedTopOfLaunchPad())
         {
-            Debug.Log("reached");
-            AnimateTrampoline();
             _isLaunching = true;
         }
-        
     }
 
     private void FixedUpdate()
@@ -68,12 +55,6 @@ public class TrampolinePhysics : MonoBehaviour
         rb.AddForce(new Vector2(rb.velocity.x, launchForce));
         _isLaunching = false;
     }
-
-    private void AnimateTrampoline()
-    {
-        // Set the proper position according to if the trampoline is opening or closing 
-        _animation.ChangePosition(_closeTrampoline ? _animation.GetPrefabs("Open") : _animation.GetPrefabs("Close"),
-            _animation.GetAnimationSpeed());
-    }
+    
 
 }
