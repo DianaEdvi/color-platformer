@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -122,4 +123,5 @@ public class TrampolineAnimation : MonoBehaviour
         }
         _top.transform.position = targetPrefab.transform.GetChild(5).position;
     }
+
 }

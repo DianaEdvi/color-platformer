@@ -489,10 +489,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trampoline
       objectReference: {fileID: 0}
-    - target: {fileID: 3111212576036139054, guid: f6984f56d82208f46adbee4b260183c8, type: 3}
-      propertyPath: launchForce
-      value: 1200
-      objectReference: {fileID: 0}
     - target: {fileID: 5621913228612107204, guid: f6984f56d82208f46adbee4b260183c8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.6
